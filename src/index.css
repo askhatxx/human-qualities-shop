@@ -27,7 +27,7 @@ body {
   align-items: center;
 }
 
-.navbar .back1 {
+.navbar .back-hidden {
   width: 0;
   opacity: 0;
   transition: .5s;

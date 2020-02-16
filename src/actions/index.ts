@@ -7,6 +7,13 @@ export const addToCart = (id: string) => {
     }
 }
 
+export const removeFromCart = (id: string) => {
+    return {
+        type: 'REMOVE_FROM_CART',
+        payload: id
+    }
+}
+
 export const fetchProducts = (dispatch: any) => {
     return () => {
         fetchProductsApi()

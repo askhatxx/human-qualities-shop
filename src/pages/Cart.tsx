@@ -1,16 +1,35 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {IProduct} from '../interfaces';
-import {IState} from '../interfaces';
+import {removeFromCart} from '../actions';
+import {nonExistentProduct} from '../api';
+import Product from '../components/Product';
+import {IProduct, IState} from '../interfaces';
 
 type CartProps = {
-    cart: Array<IProduct>
+    cart: Array<IProduct>,
+    removeFromCart: (id: string) => void
 }
 
-const Cart: React.FC<CartProps> = ({cart}) => {
+const Cart: React.FC<CartProps> = ({cart, removeFromCart}) => {
     console.log(cart);
+    const totalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
+
     return (
-        <h1>Cart Page {}</h1>
+        <div>
+            <h1>Cart Page</h1>
+            <div>Total price: {totalPrice}</div>
+            {cart.map(item => {
+                return (
+                    <Product
+                        product={item}
+                        showQuantity={true}
+                        button={{text: 'Remove from cart', func: () => removeFromCart(item.id)}}
+                        link={{text: 'More info', url: `/qualities/${item.id}`}}
+                        key={item.id}
+                    />
+                )
+            })}
+        </div>
     );
 }
 
@@ -30,9 +49,13 @@ const mapStateToProps = (state: IState) => {
                 return [...arr, {...state.products[indexInProducts], quantity: 1}];
             }
 
-            return [...arr, {id: id, title: 'Does not exist', text: '404', image: 'images/img404.jpg', quantity: 1}]
+            return [...arr, nonExistentProduct(id)];
         }, [])
     }
 }
 
-export default connect(mapStateToProps)(Cart);
+const mapDispatchToProps = {
+    removeFromCart
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cart);

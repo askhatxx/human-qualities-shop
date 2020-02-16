@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react';
-import {NavLink, useLocation} from 'react-router-dom';
+import {NavLink, useLocation, useHistory} from 'react-router-dom';
 
 const Navbar: React.FC = () => {
     const [isOpen,setIsOpen] = useState<boolean>(false);
     const location = useLocation();
+    const history = useHistory();
     
     useEffect(() => {
         setIsOpen(false);
@@ -22,10 +23,14 @@ const Navbar: React.FC = () => {
 
         return classes.join(' ');
     }
-    
+
+    const getClassesBack = () => {
+        return location.pathname === '/' ? 'back-hidden' : 'back';
+    }
+
     return (
         <nav className={getClasses()}>
-            <NavLink to="/" className="back">Back</NavLink>
+            <div onClick={() => {history.goBack()}} className={getClassesBack()}>Back</div>
             <div className="brend">
                 <NavLink to="/">Super Shop</NavLink>
             </div>
@@ -37,7 +42,7 @@ const Navbar: React.FC = () => {
                         <NavLink to="/">Main</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/qualities/power">Qualities</NavLink>
+                        <NavLink to="/qualities">Qualities</NavLink>
                     </li>
                     <li>
                         <NavLink to="/cart">Cart</NavLink>
