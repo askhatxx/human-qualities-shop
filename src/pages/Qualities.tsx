@@ -2,15 +2,21 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {addToCart} from '../actions';
 import Product from '../components/Product';
+import StatusLoading from '../components/StatusLoading';
 import {IProduct, IState} from '../interfaces';
 
 type QualitiesProps = {
     products: Array<IProduct>,
     cartTotal: number,
+    status: string,
     addToCart: (id: string) => void
 }
 
-const Qualities: React.FC<QualitiesProps> = ({products, cartTotal, addToCart}) => {
+const Qualities: React.FC<QualitiesProps> = ({products, cartTotal, status, addToCart}) => {
+    if (status !== 'STATUS_SUCCESS') {
+        return <StatusLoading status={status}/>
+    }
+    
     return (
         <div className='products'>
             <div>{cartTotal}</div>
@@ -32,7 +38,8 @@ const Qualities: React.FC<QualitiesProps> = ({products, cartTotal, addToCart}) =
 const mapStateToProps = (state: IState) => {
     return {
         products: [...state.products],
-        cartTotal: state.cart.length
+        cartTotal: state.cart.length,
+        status: state.status
     }
 }
 

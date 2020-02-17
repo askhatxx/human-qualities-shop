@@ -21,7 +21,21 @@ const cart = (state = [], action: IAction) => {
     }
 }
 
+const status = (state = 'STATUS_LOADING', action: IAction) => {
+    switch (action.type) {
+        case 'STATUS_LOADING':
+            return action.type;
+        case 'STATUS_SUCCESS':
+            return action.type;
+        case 'STATUS_ERROR':
+            return action.type;
+        default:
+            return state;
+    }
+}
+
 export default combineReducers({
     products,
-    cart
+    cart,
+    status
 });

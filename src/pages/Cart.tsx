@@ -3,14 +3,20 @@ import {connect} from 'react-redux';
 import {removeFromCart} from '../actions';
 import {nonExistentProduct} from '../api';
 import Product from '../components/Product';
+import StatusLoading from '../components/StatusLoading';
 import {IProduct, IState} from '../interfaces';
 
 type CartProps = {
     cart: Array<IProduct>,
+    status: string,
     removeFromCart: (id: string) => void
 }
 
-const Cart: React.FC<CartProps> = ({cart, removeFromCart}) => {
+const Cart: React.FC<CartProps> = ({cart, status, removeFromCart}) => {
+    if (status !== 'STATUS_SUCCESS') {
+        return <StatusLoading status={status}/>
+    }
+    
     console.log(cart);
     const totalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
 
@@ -50,7 +56,8 @@ const mapStateToProps = (state: IState) => {
             }
 
             return [...arr, nonExistentProduct(id)];
-        }, [])
+        }, []),
+        status: state.status
     }
 }
 

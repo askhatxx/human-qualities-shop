@@ -10,6 +10,7 @@ export interface IProduct {
 export interface IState {
     products: Array<IProduct>
     cart: Array<string>
+    status: string
 }
 
 export interface IAction {
