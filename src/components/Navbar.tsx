@@ -30,13 +30,13 @@ const Navbar: React.FC = () => {
 
     return (
         <nav className={getClasses()}>
-            <div onClick={() => {history.goBack()}} className={getClassesBack()}>Back</div>
+            <div onClick={() => {history.goBack()}} className={getClassesBack()}>‹</div>
             <div className="brend">
                 <NavLink to="/">Super Shop</NavLink>
             </div>
-            <button className="btn-menu" onClick={toogleOpen}>Menu</button>
+            <button className="btn-menu" onClick={toogleOpen}>≡</button>
             <div className="menu collapse">
-                <button className="btn-close" onClick={toogleOpen}>Close</button>
+                <button className="btn-close" onClick={toogleOpen}>×</button>
                 <ul>
                     <li>
                         <NavLink to="/" activeClassName="active" exact>Main</NavLink>

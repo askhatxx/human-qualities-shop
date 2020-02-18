@@ -24,10 +24,11 @@ const Cart: React.FC<CartProps> = ({cart, status, removeFromCart}) => {
         <div>
             <h1>Cart Page</h1>
             <div>Total price: {totalPrice}</div>
-            <div className='products'>
+            <div className='row products'>
                 {cart.map(item => {
                     return (
                         <Product
+                            className='col'
                             product={item}
                             showQuantity={true}
                             button={{text: 'Remove from cart', func: () => removeFromCart(item.id)}}
@@ -43,7 +44,7 @@ const Cart: React.FC<CartProps> = ({cart, status, removeFromCart}) => {
 
 const mapStateToProps = (state: IState) => {
     return {
-        cart: state.cart.reduce((arr: Array<any>, id: string) => {
+        cart: state.cart.reduce((arr: Array<IProduct>, id: string) => {
             const indexInArr = arr.findIndex(item => item.id === id);
             
             if (indexInArr !== -1) {

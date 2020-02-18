@@ -20,10 +20,11 @@ const Qualities: React.FC<QualitiesProps> = ({products, cartTotal, status, addTo
     return (
         <div className='qualities'>
             <div>{cartTotal}</div>
-            <div className='products'>
+            <div className='row products'>
                 {products.map(item => {
                     return (
                         <Product
+                            className='col'
                             product={item}
                             showQuantity={false}
                             button={{text: 'Add to cart', func: () => addToCart(item.id)}}

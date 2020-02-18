@@ -25,7 +25,7 @@ const App: React.FC<AppProps> = ({fetchProductsReady}) => {
                     <NavLink/>
                 </div>
             </div>
-            <div className='container'>
+            <div className='container padding-y-15'>
                 <Switch>
                     <Route path='/' exact component={Main} />
                     <Route path='/qualities' exact component={Qualities} />

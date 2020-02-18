@@ -18,10 +18,11 @@ const Main: React.FC<MainProps> = ({products, status, addToCart}) => {
 
     return (
         <div className='main'>
-            <div className='products'>
+            <div className='row products'>
                 {products.map(item => {
                     return (
                         <Product
+                            className='col'
                             product={item}
                             showQuantity={false}
                             button={{text: 'Add to cart', func: () => addToCart(item.id)}}

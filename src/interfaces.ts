@@ -3,7 +3,7 @@ export interface IProduct {
     title: string
     text: string
     image: string
-    onMain: boolean
+    onMain?: boolean
     price: number
     quantity: number
 }
