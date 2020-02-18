@@ -25,7 +25,7 @@ const Navbar: React.FC = () => {
     }
 
     const getClassesBack = () => {
-        return location.pathname === '/' ? 'back-hidden' : 'back';
+        return location.pathname === '/' ? 'back hidden' : 'back';
     }
 
     return (
@@ -35,17 +35,17 @@ const Navbar: React.FC = () => {
                 <NavLink to="/">Super Shop</NavLink>
             </div>
             <button className="btn-menu" onClick={toogleOpen}>Menu</button>
-            <div className="collapse">
+            <div className="menu collapse">
                 <button className="btn-close" onClick={toogleOpen}>Close</button>
                 <ul>
                     <li>
-                        <NavLink to="/">Main</NavLink>
+                        <NavLink to="/" activeClassName="active" exact>Main</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/qualities">Qualities</NavLink>
+                        <NavLink to="/qualities" activeClassName="active">Qualities</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/cart">Cart</NavLink>
+                        <NavLink to="/cart" activeClassName="active">Cart</NavLink>
                     </li>
                 </ul>
             </div>

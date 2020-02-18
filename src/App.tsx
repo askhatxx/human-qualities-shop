@@ -20,8 +20,10 @@ const App: React.FC<AppProps> = ({fetchProductsReady}) => {
     
     return (
         <BrowserRouter>
-            <div className='container grey'>
-                <NavLink/>
+            <div className='head'>
+                <div className='container'>
+                    <NavLink/>
+                </div>
             </div>
             <div className='container'>
                 <Switch>

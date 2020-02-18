@@ -18,19 +18,21 @@ const Qualities: React.FC<QualitiesProps> = ({products, cartTotal, status, addTo
     }
     
     return (
-        <div className='products'>
+        <div className='qualities'>
             <div>{cartTotal}</div>
-            {products.map(item => {
-                return (
-                    <Product
-                        product={item}
-                        showQuantity={false}
-                        button={{text: 'Add to cart', func: () => addToCart(item.id)}}
-                        link={{text: 'More info', url: `/qualities/${item.id}`}}
-                        key={item.id}
-                    />
-                )
-            })}
+            <div className='products'>
+                {products.map(item => {
+                    return (
+                        <Product
+                            product={item}
+                            showQuantity={false}
+                            button={{text: 'Add to cart', func: () => addToCart(item.id)}}
+                            link={{text: 'More info', url: `/qualities/${item.id}`}}
+                            key={item.id}
+                        />
+                    )
+                })}
+            </div>
         </div>
     );
 }

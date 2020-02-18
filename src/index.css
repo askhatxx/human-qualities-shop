@@ -11,14 +11,17 @@ body {
   font-family: 'Roboto', 'Segoe UI', 'Arial', sans-serif;
 }
 
-.grey {
-  background: #999;
-}
-
 .container {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 0 10px;
+  padding: 0;
+}
+
+.head {
+  background-color: rgb(172,9,164);
+  background-image: linear-gradient(90deg, rgba(191,3,95,1) 0%, rgba(153,12,233,1) 100%);
+  background-size: 150% auto;
+  background-position: 50%;
 }
 
 .navbar {
@@ -27,24 +30,38 @@ body {
   align-items: center;
 }
 
-.navbar .back-hidden {
-  width: 0;
-  opacity: 0;
-  transition: .5s;
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.navbar .back+.brend {
-  flex-grow: 0;
+.navbar .back {
+  padding: 20px 10px;
+  color: #fff;
+  transition: .5s;
+  cursor: pointer;
+}
+
+.navbar .back.hidden {
+  width: 0;
+  padding: 0;
+  opacity: 0;
 }
 
 .navbar .brend {
-  flex-grow: 1;
   transition: .5s;
+  flex-grow: 0;
+  z-index: 1000;
+}
+
+.navbar .back.hidden + .brend {
+  flex-grow: 1;
 }
 
 .navbar .brend a {
-  display: block;
-  padding: 20px 0;
+  display: inline-block;
+  padding: 20px 10px;
   color: #fff;
   text-decoration: none;
 }
@@ -52,6 +69,10 @@ body {
 .navbar button {
   display: none;
   padding: 5px;
+}
+
+.navbar .menu {
+  z-index: 2000;
 }
 
 .navbar ul {
@@ -69,6 +90,10 @@ body {
   text-decoration: none;
 }
 
+.navbar ul li a.active {
+  color: #000;
+}
+
 
 @media (max-width: 768px) {
 
@@ -82,7 +107,7 @@ body {
 
   .navbar .collapse {
     position: fixed;
-    background: #333;
+    background: #222;
     top: 0;
     bottom: 0;
     right: -280px;
@@ -95,6 +120,17 @@ body {
     flex-direction: column;
   }
 
+}
+
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.products .product {
+  padding: 20px;
+  flex: 1 0 33.33%;
 }
 
 

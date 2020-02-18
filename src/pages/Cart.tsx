@@ -24,24 +24,26 @@ const Cart: React.FC<CartProps> = ({cart, status, removeFromCart}) => {
         <div>
             <h1>Cart Page</h1>
             <div>Total price: {totalPrice}</div>
-            {cart.map(item => {
-                return (
-                    <Product
-                        product={item}
-                        showQuantity={true}
-                        button={{text: 'Remove from cart', func: () => removeFromCart(item.id)}}
-                        link={{text: 'More info', url: `/qualities/${item.id}`}}
-                        key={item.id}
-                    />
-                )
-            })}
+            <div className='products'>
+                {cart.map(item => {
+                    return (
+                        <Product
+                            product={item}
+                            showQuantity={true}
+                            button={{text: 'Remove from cart', func: () => removeFromCart(item.id)}}
+                            link={{text: 'More info', url: `/qualities/${item.id}`}}
+                            key={item.id}
+                        />
+                    )
+                })}
+            </div>
         </div>
     );
 }
 
 const mapStateToProps = (state: IState) => {
     return {
-        cart: state.cart.reduce((arr: Array<IProduct>, id: string) => {
+        cart: state.cart.reduce((arr: Array<any>, id: string) => {
             const indexInArr = arr.findIndex(item => item.id === id);
             
             if (indexInArr !== -1) {
