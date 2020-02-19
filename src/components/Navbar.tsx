@@ -30,9 +30,9 @@ const Navbar: React.FC = () => {
 
     return (
         <nav className={getClasses()}>
-            <div onClick={() => {history.goBack()}} className={getClassesBack()}>‹</div>
+            <div onClick={() => {history.goBack()}} className={getClassesBack()}>←</div>
             <div className="brend">
-                <NavLink to="/">Super Shop</NavLink>
+                <NavLink to="/">Human Qualities Shop</NavLink>
             </div>
             <button className="btn-menu" onClick={toogleOpen}>≡</button>
             <div className="menu collapse">

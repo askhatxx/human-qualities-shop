@@ -20,11 +20,11 @@ const App: React.FC<AppProps> = ({fetchProductsReady}) => {
     
     return (
         <BrowserRouter>
-            <div className='head'>
+            <header className='head'>
                 <div className='container'>
                     <NavLink/>
                 </div>
-            </div>
+            </header>
             <div className='container padding-y-15'>
                 <Switch>
                     <Route path='/' exact component={Main} />

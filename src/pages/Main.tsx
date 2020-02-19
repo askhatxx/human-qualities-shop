@@ -18,6 +18,9 @@ const Main: React.FC<MainProps> = ({products, status, addToCart}) => {
 
     return (
         <div className='main'>
+            <div className='page-title page-title-main'>
+                <h2>Best of the week</h2>
+            </div>
             <div className='row products'>
                 {products.map(item => {
                     return (

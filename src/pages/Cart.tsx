@@ -21,23 +21,28 @@ const Cart: React.FC<CartProps> = ({cart, status, removeFromCart}) => {
     const totalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
 
     return (
-        <div>
-            <h1>Cart Page</h1>
-            <div>Total price: {totalPrice}</div>
-            <div className='row products'>
-                {cart.map(item => {
-                    return (
-                        <Product
-                            className='col'
-                            product={item}
-                            showQuantity={true}
-                            button={{text: 'Remove from cart', func: () => removeFromCart(item.id)}}
-                            link={{text: 'More info', url: `/qualities/${item.id}`}}
-                            key={item.id}
-                        />
-                    )
-                })}
+        <div className='cart'>
+            <div className='page-title'>
+                <h2>Your cart</h2>
+                <div>Total price: {totalPrice}</div>
             </div>
+            {cart.length === 0 ? (
+                <div className='cart-empty'>Cart is empty</div>
+            ) : (
+                <div className='products'>
+                    {cart.map(item => {
+                        return (
+                            <Product 
+                                product={item}
+                                showQuantity={true}
+                                button={{text: 'Remove from cart', func: () => removeFromCart(item.id)}}
+                                link={{text: 'More info', url: `/qualities/${item.id}`}}
+                                key={item.id}
+                            />
+                        )
+                    })}
+                </div>
+            )}
         </div>
     );
 }

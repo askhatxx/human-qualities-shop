@@ -19,7 +19,10 @@ const Qualities: React.FC<QualitiesProps> = ({products, cartTotal, status, addTo
     
     return (
         <div className='qualities'>
-            <div>{cartTotal}</div>
+            <div className='page-title'>
+                <h2>All products</h2>
+                <div>{cartTotal !== 0 ? `Cart: ${cartTotal}` : 'Cart is empty'}</div>
+            </div>
             <div className='row products'>
                 {products.map(item => {
                     return (
