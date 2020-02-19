@@ -25,7 +25,7 @@ const App: React.FC<AppProps> = ({fetchProductsReady}) => {
                     <NavLink/>
                 </div>
             </header>
-            <div className='container padding-y-15'>
+            <div className='container padding-container'>
                 <Switch>
                     <Route path='/' exact component={Main} />
                     <Route path='/qualities' exact component={Qualities} />
@@ -34,6 +34,11 @@ const App: React.FC<AppProps> = ({fetchProductsReady}) => {
                     <Route path='/' component={Page404} />
                 </Switch>
             </div>
+            <footer className='footer'>
+                <div className='container'>
+                    HQS - Lorem ipsum dolor sit amet...
+                </div>
+            </footer>
         </BrowserRouter>
     );
 }

@@ -5,12 +5,87 @@ export const fetchProductsApi = async () => {
 }
 
 const products = [
-    {id: '1', title: 'Smart 1', text: 'Description 1', image: '/images/01.jpg', onMain: true, price: 1200, quantity: 100},
-    {id: '2', title: 'Smart 2', text: 'Description 2', image: '/images/02.jpg', onMain: true, price: 2000, quantity: 100},
-    {id: '3', title: 'Smart 3', text: 'Description 3', image: '/images/01.jpg', onMain: false, price: 3450, quantity: 100},
-    {id: '4', title: 'Smart 4', text: 'Description 4', image: '/images/02.jpg', onMain: true, price: 2700, quantity: 0},
-    {id: '5', title: 'Smart 5', text: 'Description 5', image: '/images/01.jpg', onMain: true, price: 5000, quantity: 100},
-    {id: '6', title: 'Smart 6', text: 'Description 6', image: '/images/02.jpg', onMain: false, price: 1900, quantity: 0},
+    {
+        id: '1',
+        title: 'Sense of humor',
+        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        image: 'https://askhatxx.github.io/human-qualities-shop/images/01.jpg',
+        onMain: false,
+        price: 3200,
+        quantity: 100
+    },
+    {
+        id: '2',
+        title: 'Health',
+        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        image: 'https://askhatxx.github.io/human-qualities-shop/images/02.jpg',
+        onMain: false,
+        price: 5300,
+        quantity: 100
+    },
+    {
+        id: '3',
+        title: 'Supermind',
+        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        image: 'https://askhatxx.github.io/human-qualities-shop/images/03.jpg',
+        onMain: true,
+        price: 2600,
+        quantity: 100
+    },
+    {
+        id: '4',
+        title: 'Calm',
+        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        image: 'https://askhatxx.github.io/human-qualities-shop/images/04.jpg',
+        onMain: true,
+        price: 5800,
+        quantity: 100
+    },
+    {
+        id: '5',
+        title: 'Power',
+        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        image: 'https://askhatxx.github.io/human-qualities-shop/images/05.jpg',
+        onMain: true,
+        price: 1800,
+        quantity: 0
+    },
+    {
+        id: '6',
+        title: 'Style',
+        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        image: 'https://askhatxx.github.io/human-qualities-shop/images/06.jpg',
+        onMain: false,
+        price: 1400,
+        quantity: 0
+    },
+    {
+        id: '7',
+        title: 'Stress resistance',
+        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        image: 'https://askhatxx.github.io/human-qualities-shop/images/07.jpg',
+        onMain: true,
+        price: 4500,
+        quantity: 0
+    },
+    {
+        id: '8',
+        title: 'Equanimity',
+        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        image: 'https://askhatxx.github.io/human-qualities-shop/images/08.jpg',
+        onMain: true,
+        price: 2000,
+        quantity: 100
+    },
+    {
+        id: '9',
+        title: 'Charisma',
+        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        image: 'https://askhatxx.github.io/human-qualities-shop/images/09.jpg',
+        onMain: true,
+        price: 4500,
+        quantity: 100
+    },
 ];
 
 export const nonExistentProduct = (id: string) => {
@@ -18,7 +93,7 @@ export const nonExistentProduct = (id: string) => {
         id: id || Date.now().toString(), 
         title: 'Does not exist', 
         text: '404', 
-        image: '/images/img404.jpg', 
+        image: 'https://askhatxx.github.io/human-qualities-shop/images/img404.jpg', 
         onMain: false, 
         price: 0, 
         quantity: 1

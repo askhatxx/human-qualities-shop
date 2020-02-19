@@ -17,7 +17,6 @@ const Cart: React.FC<CartProps> = ({cart, status, removeFromCart}) => {
         return <StatusLoading status={status}/>
     }
     
-    console.log(cart);
     const totalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
 
     return (
